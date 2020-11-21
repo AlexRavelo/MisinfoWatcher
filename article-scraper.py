@@ -1,19 +1,20 @@
 import requests
 import urllib
 import time
-from bs4 import BeautifulSoup
+from newspaper import Article
 
 def scrapeArticle(url):
 
-
+    # nabbing the article
+    article = Article(url)
+    article.download()
+    article.html
+    article.parse()
+    
+    # nabbing both the text and the title
+    article_text = article.text
+    title_text = article.title
+ 
 	
-	# Connect to the URL passed into the function
-	response = requests.get(url)
-
-	# Parse HTML as a BeautifulSoup object
-	soup = BeautifulSoup(response.text, "html.parser")
-
-	# Nabbing the title and page text
-	article_text = soup.get_text()
-
-	return article_text
+    return title_text, article_text
+    
