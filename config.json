@@ -1,0 +1,9 @@
+{
+    "BERT_MODEL": "bert-base-uncased",
+    "PRE_TRAINED_MODEL": "assets/model_state_dict.bin",
+    "CLASS_NAMES": [
+        "real",
+        "fake"
+    ],
+    "MAX_SEQUENCE_LEN": 160
+}
