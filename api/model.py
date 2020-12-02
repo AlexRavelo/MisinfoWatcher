@@ -18,7 +18,7 @@ class Model:
         )
         classifier = classifier.eval()
         self.classifier = classifier.to(self.device)
-    def predict(self, text):
+    def predict(self, text: str):
         encoded_text = self.tokenizer.encode_plus(
             text,
             max_length=config["MAX_SEQUENCE_LEN"],

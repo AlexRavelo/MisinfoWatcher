@@ -8,7 +8,7 @@ import axios from "axios";
 function SearchBar(props) {
   const [value, setValue] = React.useState("");
   const [css, theme] = useStyletron();
-  const API_ENDPOINT = ""
+  const API_ENDPOINT = "http://localhost:8000"
 
   const handleKeyPress = (event) => {
     if (value !== "" && event.key === "Enter") {
@@ -26,7 +26,7 @@ function SearchBar(props) {
     Promise.resolve(response).then(() => {
       console.log("Promise completed....")
       console.log(response.data)
-      props.stateContext.searchResults.set(response.data.search_results);
+      props.stateContext.searchResults.set(response.data);
       props.stateContext.resultsFound.set(true);
     });
   }
