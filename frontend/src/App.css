@@ -10,7 +10,7 @@
   justify-content: center;
   position: fixed;
   bottom: 5%;
-  color: mediumslateblue;
+  color: rgb(60, 130, 235);
   font: x-small;
   font-family: monospace;
 }
@@ -24,15 +24,15 @@
 }
 
 .homepage-search-container {
-  background-color: #31112c;
+  background-color: #2088c4;
 }
 
 .search-button {
-  background-color: #31112c !important;
+  background-color: rgb(60, 130, 235) !important;
 }
 
 .homepage-logo {
-  background: url("./blm-logo.svg") no-repeat;
+  background: url("./detective.png") no-repeat;
   background-size: contain;
   position: fixed;
   top: 25%;
@@ -41,7 +41,7 @@
 }
 
 .search-results-logo {
-  background: url("./blm-logo.svg") no-repeat;
+  background: url("./detective.png") no-repeat;
   background-size: contain;
   position: fixed;
   top: 10%;
@@ -52,7 +52,7 @@
 
 @media only screen and (max-width: 945px) {
   .search-results-logo {
-    background: url("./blm-logo.svg") no-repeat;
+    background: url("./detective.png")  no-repeat;
     background-size: contain;
     position: fixed;
     top: 10%;
@@ -64,7 +64,7 @@
 
 @media only screen and (max-width: 700px) {
   .search-results-logo {
-    background: url("./blm-logo.svg") no-repeat;
+    background: url("./detective.png") no-repeat;
     background-size: contain;
     position: fixed;
     top: 10%;
@@ -76,7 +76,7 @@
 
 @media only screen and (max-width: 515px) {
   .search-results-logo {
-    background: url("./blm-logo.svg") no-repeat;
+    background: url("./detective.png")  no-repeat;
     background-size: contain;
     position: fixed;
     top: 10%;
@@ -88,7 +88,7 @@
 
 @media only screen and (max-width: 480px) {
   .search-results-logo {
-    background: url("./blm-logo.svg") no-repeat;
+    background: url("./detective.png")  no-repeat;
     background-size: contain;
     position: fixed;
     top: 10%;

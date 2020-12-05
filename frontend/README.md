@@ -1,31 +1,4 @@
-# JusticeBytes Frontend
-
-## Local Instructions
-
-## Docker Instructions
-It is reccommended you follow local instructions if doing development and Docker instructions for deployment
-
-* Install Docker to your machine
-* Clone the repo
-* Navigate to the Frontend/ directory
-
-Build the docker image
-```
-docker build -t justicebytes-frontend .
-```
-
-Run the image
-```
-docker run -it --rm -p 3000:3000 justicebytes-frontend
-```
-
-## Create React App boilerplate
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
+# MisinfoWatcher frontend
 ### `npm start`
 
 Runs the app in the development mode.<br />

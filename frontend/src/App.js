@@ -9,7 +9,7 @@ import SearchResults from "./SearchResults";
 
 const engine = new Styletron();
 const AppContext = React.createContext({});
-const GITHUB_URL = "https://github.com/Hevia/JusticeBytes";
+const GITHUB_URL = "https://github.com/AlexRavelo/MisinfoWatcher";
 
 function App() {
   const [searchResults, setSearchResults] = useState([

@@ -6,10 +6,11 @@ class NamedEntityModel:
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("dslim/bert-base-NER")
         self.model = AutoModelForTokenClassification.from_pretrained("dslim/bert-base-NER")     
-        self.nlp = pipeline("ner", model=model, tokenizer=tokenizer)
-        self.min_percent = 0.97
+        self.nlp = pipeline("ner", model=self.model, tokenizer=self.tokenizer)
+        self.min_percent = 0.90
 
     def predict(self, text: str) -> List[str]:
+        print("Inside of NER predict function")
         ner_results = self.nlp(text)
         words = []
         for entity in ner_results:

@@ -8,7 +8,7 @@ import axios from "axios";
 function SearchBar(props) {
   const [value, setValue] = React.useState("");
   const [css, theme] = useStyletron();
-  const API_ENDPOINT = "http://localhost:8000"
+  const API_ENDPOINT = "http://localhost:8000/predict"
 
   const handleKeyPress = (event) => {
     if (value !== "" && event.key === "Enter") {
@@ -20,7 +20,7 @@ function SearchBar(props) {
   async function makeSearchRequest(user_input) {
     const response = await axios.post(
       API_ENDPOINT,
-      { search_query: user_input },
+      { url: user_input },
       { headers: { "Content-Type": "application/json" } }
     );
     Promise.resolve(response).then(() => {
