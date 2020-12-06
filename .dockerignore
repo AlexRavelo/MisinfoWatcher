@@ -1,0 +1,8 @@
+frontend/
+crawlers/
+data/
+.github/
+models/
+.gitattributes
+.gitignore
+README.md
