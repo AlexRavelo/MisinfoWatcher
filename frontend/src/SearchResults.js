@@ -1,27 +1,14 @@
 import * as React from "react";
 import './App.css';
-import { ListItem, ListItemLabel } from "baseui/list";
 import {useStyletron} from 'baseui';
-import {
-    Card,
-    StyledBody,
-    StyledAction
-  } from "baseui/card";
-  import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
+import {Card, StyledBody} from "baseui/card";
+import {FlexGrid} from 'baseui/flex-grid';
 
 
 
 function SearchResults(props) {
 const [css] = useStyletron();
-
-const itemProps = {
-    backgroundColor: 'mono300',
-    height: 'scale1000',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
+console.log(css);
 return (
 <div>
     <a href="/"><svg className="search-results-logo"></svg></a>
