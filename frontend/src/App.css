@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.entity-list {
+  overflow-y: scroll;
+}
+
 .gitHub-link {
   left: 47%;
   right: 45%;
@@ -116,7 +120,7 @@
 .search-result-box {
   width: 70%;
   position: fixed;
-  top: 30%;
+  top: 60%;
   left: 65%;
   transform: translate(-50%, -50%);
 }

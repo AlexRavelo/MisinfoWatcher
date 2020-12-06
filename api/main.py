@@ -1,8 +1,10 @@
 from typing import Dict, List
+from summarizer import Summarizer
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 from .model import get_model, Model
 from .ner_model import get_ner_model, NamedEntityModel
+from .summary_model import get_summary_model
 from fastapi.middleware.cors import CORSMiddleware
 from .article_scraper import scrapeArticle
 
@@ -42,6 +44,7 @@ class MisinfoWatcherResponse(BaseModel):
     title_confidence: float
     article_sentiment: str
     article_confidence: float
+    article_summary: str
     entities: List[str]
 
 @app.post("/predictTitle")
@@ -84,36 +87,40 @@ def grabEntities(request: ClassifierRequest, model: NamedEntityModel = Depends(g
     )
 
 @app.post("/predict", response_model=MisinfoWatcherResponse)
-def grabEntities(request: ClassifierRequest, article_model: Model = Depends(get_model), ner_model: NamedEntityModel = Depends(get_ner_model)):
-    messages = []
-
+def predict(
+    request: ClassifierRequest, 
+    article_model: Model = Depends(get_model), 
+    ner_model: NamedEntityModel = Depends(get_ner_model), 
+    summary_model: Summarizer = Depends(get_summary_model)):
     try:
         title, text = scrapeArticle(request.url)
         print("Success in scraping article!")
     except Exception as e:
-        messages.append(f"Error scraping article: {e}")
         print(f"Error scraping article: {e}")
         return None # TODO
 
 
     try:
         entities = ner_model.predict(text)
-        messages.append(f"Success in predicting entites: {entities}")
         print(f"Success in predicting entites: {entities}")
     except Exception as e:
         entities = ["None"]
         print(f"Error in predicting entites: {e}")
-        messages.append(f"Error in predicting entites: {e}")
 
     try:
         text_sentiment, text_confidence, _ = article_model.predict(text)
-        messages.append("Success in predicting article sentiment")
         print("Success in predicting article sentiment")
     except Exception as e:
         text_sentiment = "Unable to predict"
         text_confidence = 0.0
         print(f"Error in predicting article sentiment: {e}")
-        messages.append(f"Error in predicting article sentiment: {e}")
+
+    try:
+        summary_results = ''.join(summary_model(text, min_length=60))
+        print("Success grabbing article summary")
+    except Exception as e:
+        summary_results = "Unable to generate summary"
+        print(f"Error in predicting article sentiment: {e}")
 
 
     return MisinfoWatcherResponse(
@@ -121,5 +128,6 @@ def grabEntities(request: ClassifierRequest, article_model: Model = Depends(get_
         title_confidence=0.0,
         article_sentiment=str(text_sentiment),
         article_confidence=float(text_confidence),
+        article_summary=summary_results,
         entities=entities
     )
