@@ -8,7 +8,8 @@ import axios from "axios";
 function SearchBar(props) {
   const [value, setValue] = React.useState("");
   const [css, theme] = useStyletron();
-  const API_ENDPOINT = "http://localhost:8000/predict"
+  console.log(css);
+  const API_ENDPOINT = "http://misinfowatcher-api.azurewebsites.net/predict"
 
   const handleKeyPress = (event) => {
     if (value !== "" && event.key === "Enter") {
