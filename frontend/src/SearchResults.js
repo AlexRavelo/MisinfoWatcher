@@ -40,13 +40,6 @@ return (
 
             <Card>
                 <StyledBody>
-                    MisinfoWatcher believes the article title is: {props.stateContext.searchResults.get.title_sentiment}  
-                    with a confidence of {props.stateContext.searchResults.get.title_confidence}%
-                </StyledBody>
-            </Card>
-
-            <Card>
-                <StyledBody>
                     Article Summary: {props.stateContext.searchResults.get.article_summary}
                 </StyledBody>
             </Card>
