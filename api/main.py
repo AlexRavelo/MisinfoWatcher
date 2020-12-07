@@ -40,8 +40,6 @@ class NamedEntityResponse(BaseModel):
     message: str
 
 class MisinfoWatcherResponse(BaseModel):
-    title_sentiment: str
-    title_confidence: float
     article_sentiment: str
     article_confidence: float
     article_summary: str
@@ -124,8 +122,6 @@ def predict(
 
 
     return MisinfoWatcherResponse(
-        title_sentiment="foo",
-        title_confidence=0.0,
         article_sentiment=str(text_sentiment),
         article_confidence=float(text_confidence),
         article_summary=summary_results,
